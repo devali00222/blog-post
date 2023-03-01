@@ -1,0 +1,41 @@
+{
+  "name": "blog-post",
+  "version": "1.0.0",
+  "description": "blog posts api",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devali00222/blog-post.git"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "javascript",
+    "expressjs",
+    "api",
+    "restfullapi",
+    "mongodb",
+    "mongoose",
+    "blogpost",
+    "blog"
+  ],
+  "author": "devali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devali00222/blog-post/issues"
+  },
+  "homepage": "https://github.com/devali00222/blog-post#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "morgan": "^1.10.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
