@@ -4,6 +4,7 @@
   "description": "blog posts api",
   "main": "server.ts",
   "scripts": {
+    "dev": "nodemon --exec ts-node server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,5 +38,10 @@
     "morgan": "^1.10.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4"
   }
 }
