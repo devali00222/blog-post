@@ -21,15 +21,15 @@ usersRouter
   .put(controller.unavilable)
   .delete(controller.unavilable);
 usersRouter
-  .route("/edit")
-  .get(controller.unavilable)
-  .post(controller.edit)
-  .put(controller.unavilable)
-  .delete(controller.unavilable);
-usersRouter
   .route("/:id")
   .get(controller.getUser)
   .post(controller.unavilable)
   .put(controller.unavilable)
   .delete(controller.deleteUser);
+  usersRouter
+  .route("/:id/edit")
+  .get(controller.unavilable)
+  .post(controller.edit)
+  .put(controller.unavilable)
+  .delete(controller.unavilable);
 export default usersRouter;
