@@ -1,13 +1,18 @@
 import { Router } from "express";
 import UsersController from "../controllers/usersController";
+import {
+  authentication,
+  havePremision,
+  isAdmin,
+} from "../middlewares/authentication";
 const usersRouter = Router();
 const controller = new UsersController();
 usersRouter
   .route("/")
-  .get(controller.getAllUsers)
+  .get(authentication, havePremision, controller.getAllUsers)
   .post(controller.unavilable)
   .put(controller.unavilable)
-  .delete(controller.deleteAllUsers);
+  .delete(authentication, isAdmin, controller.deleteAllUsers);
 usersRouter
   .route("/login")
   .get(controller.unavilable)
@@ -21,15 +26,21 @@ usersRouter
   .put(controller.unavilable)
   .delete(controller.unavilable);
 usersRouter
-  .route("/:id")
-  .get(controller.getUser)
-  .post(controller.unavilable)
-  .put(controller.unavilable)
-  .delete(controller.deleteUser);
-  usersRouter
-  .route("/:id/edit")
+  .route("/edit-password")
   .get(controller.unavilable)
-  .post(controller.edit)
+  .post(authentication, controller.editPassword)
   .put(controller.unavilable)
   .delete(controller.unavilable);
+usersRouter
+  .route("/edit-role")
+  .get(controller.unavilable)
+  .post(authentication, havePremision, controller.editRole)
+  .put(controller.unavilable)
+  .delete(controller.unavilable);
+usersRouter
+  .route("/:id")
+  .get(authentication, havePremision, controller.getUser)
+  .post(controller.unavilable)
+  .put(controller.unavilable)
+  .delete(authentication, isAdmin, controller.deleteUser);
 export default usersRouter;

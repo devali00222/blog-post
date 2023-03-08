@@ -2,7 +2,8 @@ import { Schema, model, Document } from "mongoose";
 export interface PostsSchema extends Document {
   title: string;
   content: string;
-  // auther: string;
+  autherId: Schema.Types.ObjectId;
+  autherName: string;
   date: Date;
   // comments: object;
   likes: number;
@@ -18,10 +19,14 @@ const postSchema = new Schema({
     type: String,
     required: true,
   },
-  // auther:{
-  //   type:String,
-  //   required : true
-  // },
+  autherId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  autherName: {
+    type: String,
+    required : true
+  },
   date: {
     type: Date,
     default: new Date(),

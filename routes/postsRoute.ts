@@ -1,18 +1,19 @@
 import { Router } from "express";
 import PostsController from "../controllers/postsController";
+import { authentication } from "../middlewares/authentication";
 const postsRouter = Router();
 const controller = new PostsController();
 postsRouter
   .route("/")
-  .get(controller.getAllPosts)
-  .post(controller.createPost)
+  .get(authentication, controller.getAllPosts)
+  .post(authentication, controller.createPost)
   .put(controller.unavilable)
-  .delete(controller.deleteAllPosts);
+  .delete(authentication, controller.deleteAllPosts);
 postsRouter
   .route("/:id")
-  .get(controller.getPost)
+  .get(authentication, controller.getPost)
   .post(controller.unavilable)
-  .put(controller.updatePost)
-  .delete(controller.deletePost);
+  .put(authentication, controller.updatePost)
+  .delete(authentication, controller.deletePost);
 
 export default postsRouter;
